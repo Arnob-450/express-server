@@ -10,6 +10,7 @@ import fs from "fs";
 import logger from "./middleware/logger";
 import globalErrorHandler from "./middleware/globalErrorHandler";
 import cors from "cors"
+import cookyParser from "cookie-parser"
 
 const app: Application = express();
  const corsOptions = {
@@ -18,6 +19,7 @@ const app: Application = express();
 }
 
 // const port = config.port;
+app.use(cookyParser())
 app.use(cors(corsOptions))
 app.use(express.json());
 app.use(express.text());
